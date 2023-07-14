@@ -1,5 +1,5 @@
 from handlers.info_handler import handle_info_request
-from handlers.example_handler import handle_example_request
+from handlers.example_handler import handle_get_example_request, handle_post_example_request
 from utils import config_manager as config
 
 from aiohttp import web
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     #   это разные маршруты. Я обычно всегда в конце `/` не ставлю, чтобы было единообразно
     # - обработчик, это просто асинхронная функция в пакете handlers. Можно создавать свои и делать в них что угодно.
     app.router.add_get('/', handle_info_request)
-    app.router.add_get('/api/example', handle_example_request)
+    app.router.add_get('/api/example', handle_get_example_request)
 
     # В конфиге пока только порт, но можно легко добавлять другие параметры и получать их аналогичным способом
     # конфиг можно импортировать в любой пакет аналогично импорту в этом пакете
